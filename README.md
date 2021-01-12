@@ -68,4 +68,12 @@ print(message.sid)
 getattr(self, '_display_{}_data'.format(proto.lower()))()
 ```
 
-7. 
+7. Jalankan program dengan perintah ```python3 packet_sniffer.py``` dan akan didapatkan hasilnya: 
+
+- untuk notifikasi di Whatsapp
+
+![7](https://github.com/widyantarif/FP-IDS_05311840000030_Widyantari-Febiyanti/blob/main/Dokumentasi/Picture12.png)
+
+- untuk notifikasi di server
+
+![8](https://github.com/widyantarif/FP-IDS_05311840000030_Widyantari-Febiyanti/blob/main/Dokumentasi/Picture13.png)
