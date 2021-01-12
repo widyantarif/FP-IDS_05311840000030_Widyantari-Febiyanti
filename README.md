@@ -24,6 +24,7 @@ Membuat program yang mampu mendeteksi adanya intruder saat mengakses suatu serve
 Asumsi intrusi adalah semua paket yang bukan berasal dari IP server itu sendiri.Kemudian IP yang sudah tercatat sebagai intruder, tidak perlu diprint / kirim notifikasi lagi. Yang perlu dilakukan adalah sebagai berikut: 
 
 1. Menambahkan variabel global untuk menyimpan IP intruder:
+
 ![1](https://github.com/widyantarif/FP-IDS_05311840000030_Widyantari-Febiyanti/blob/main/Dokumentasi/Picture1.png)
 
 2. Menambahkan logika pada fungsi ```_display_packet_info``` serta membuat pengecualian IP yang akan terdeteksi. Pada coding 
