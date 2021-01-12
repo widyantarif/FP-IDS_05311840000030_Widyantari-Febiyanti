@@ -24,6 +24,7 @@ Membuat program yang mampu mendeteksi adanya intruder saat mengakses suatu serve
 Asumsi intrusi adalah semua paket yang bukan berasal dari IP server itu sendiri.Kemudian IP yang sudah tercatat sebagai intruder, tidak perlu diprint / kirim notifikasi lagi. Yang perlu dilakukan adalah sebagai berikut: 
 
 1. Menambahkan variabel global untuk menyimpan IP intruder:
+
 ![1](https://github.com/widyantarif/FP-IDS_05311840000030_Widyantari-Febiyanti/blob/main/Dokumentasi/Picture1.png)
 
 2. Menambahkan logika pada fungsi ```_display_packet_info``` serta membuat pengecualian IP yang akan terdeteksi. Pada coding 
@@ -36,10 +37,35 @@ memiliki arti yaitu melakukan penangkapan kecuali IP ```103.41.206.73``` yang me
 ![2](https://github.com/widyantarif/FP-IDS_05311840000030_Widyantari-Febiyanti/blob/main/Dokumentasi/Picture2.png)
 
 3. Ketika berhenti, menampilkan list IP yang dianggap intruder:
+
 ![3](https://github.com/widyantarif/FP-IDS_05311840000030_Widyantari-Febiyanti/blob/main/Dokumentasi/Picture6.png)
 
 4. Install library twilio kedalam server dengan perintah
 ```pip install twilio```
+
 ![4](https://github.com/widyantarif/FP-IDS_05311840000030_Widyantari-Febiyanti/blob/main/Dokumentasi/Picture9.png)
 
-5. 
+(sumber twilio python: https://github.com/twilio/twilio-python)
+
+5. Tambahkan header import sesuai pada petunjuk https://github.com/twilio/twilio-python
+
+![5](https://github.com/widyantarif/FP-IDS_05311840000030_Widyantari-Febiyanti/blob/main/Dokumentasi/Picture10.png)
+
+6. Modifikasi ```_display_packet_info``` sesuai dengan petunjuk 
+
+![6](https://github.com/widyantarif/FP-IDS_05311840000030_Widyantari-Febiyanti/blob/main/Dokumentasi/Picture11.png) 
+
+```
+account_sid = 'zzzzzzzzzzzzzzzzzzzzzzz' ## didapatkan dari login/mendaftar di twilio
+auth_token = 'zzzzzzzzzzzzzzzzzzzzzzzz' ## didapatkan dari login/mendaftar di twilio
+client = Client(account_sid, auth_token)
+message = client.messages.create(
+                              from_='whatsapp:+14155238886', ## nomor dari twilio yang harus disave
+                              body='Ada intruder dengan IP : ' + lastIP, ## berisikan tulisan/pesan yang akan terkirim
+                              to='whatsapp:+zzzzzzzzz' ## nomer kita
+                          )
+print(message.sid)
+getattr(self, '_display_{}_data'.format(proto.lower()))()
+```
+
+7. 
